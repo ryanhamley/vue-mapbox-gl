@@ -13,8 +13,33 @@ export default {
         container: 'map',
         style: 'mapbox://styles/ryanhamley/ciuxgnhff00jo2irrvml8bfjk',
         center: [-122.40995240000001, 37.7720566],
-        zoom: 13,
+        zoom: 16,
         pitch: 45
+    });
+
+    // the 'building' layer in the mapbox-streets vector source contains building-height
+    // data from OpenStreetMap.
+    map.on('load', function() {
+        map.addLayer({
+            'id': '3d-buildings',
+            'source': 'composite',
+            'source-layer': 'building',
+            'filter': ['==', 'extrude', 'true'],
+            'type': 'fill',
+            'minzoom': 15,
+            'paint': {
+                'fill-color': '#aaa',
+                'fill-extrude-height': {
+                    'type': 'identity',
+                    'property': 'height'
+                },
+                'fill-extrude-base': {
+                    'type': 'identity',
+                    'property': 'min_height'
+                },
+                'fill-opacity': .6
+            }
+        });
     });
   }
 }
