@@ -10,7 +10,7 @@ npm install -g yarn
 # install dependencies
 yarn
 
-# serve at localhost:8080 (if your running dev for the first time, you must run yarn build first)
+# serve at localhost:8080 (if you're running dev for the first time, you must run yarn build first)
 yarn dev
 
 # build for production with minification
