@@ -12,6 +12,7 @@
 <script>
 const config = require('../../config/app.config').default
 const mapboxgl = require('mapbox-gl')
+const Draw = require('mapbox-gl-draw')
 
 const mapStyles = {
   default: 'mapbox://styles/ryanhamley/ciuxgnhff00jo2irrvml8bfjk',
@@ -44,9 +45,12 @@ export default {
     let map = new mapboxgl.Map(defaultOptions);
     this.map = map;
 
-    let nav = new mapboxgl.NavigationControl({position: 'top-left'})
+    let nav = new mapboxgl.NavigationControl({position: 'bottom-right'})
 
     map.addControl(nav)
+    console.log('mapboxgl', mapboxgl);
+
+    map.addControl(Draw())
 
     map.on('load', function () {
       // the 'building' layer in the mapbox-streets vector source contains building-height
