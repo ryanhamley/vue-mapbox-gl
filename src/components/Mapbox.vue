@@ -1,25 +1,41 @@
 <template>
   <div id="map">
+    <p id="latLng">Lat: {{lat}} Lng: {{lng}}</p>
   </div>
 </template>
 
 <script>
+const config = require('../../config/app.config').default
 const mapboxgl = require('mapbox-gl')
-mapboxgl.accessToken = 'pk.eyJ1IjoicnlhbmhhbWxleSIsImEiOiJjaWszbmluaG8wMDAzdTBrc2Q3Ymk3b3l1In0.BxdMyaYKg_0-LwANjPybNA'
+
+const defaultOptions = {
+  container: 'map',
+  style: 'mapbox://styles/ryanhamley/ciuxgnhff00jo2irrvml8bfjk',
+  center: [-122.40995240000001, 37.7720566],
+  zoom: 15,
+  pitch: 45,
+  attributionControl: false
+}
+
+mapboxgl.accessToken = config.mapboxToken
 
 export default {
+  data: function () {
+    return {
+      lat: '37.7720566',
+      lng: '-122.4099524'
+    }
+  },
   mounted() {
-    let map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/ryanhamley/ciuxgnhff00jo2irrvml8bfjk',
-        center: [-122.40995240000001, 37.7720566],
-        zoom: 16,
-        pitch: 45
-    });
+    let map = new mapboxgl.Map(defaultOptions);
 
-    // the 'building' layer in the mapbox-streets vector source contains building-height
-    // data from OpenStreetMap.
-    map.on('load', function() {
+    let nav = new mapboxgl.NavigationControl({position: 'top-left'})
+
+    map.addControl(nav)
+
+    map.on('load', function () {
+        // the 'building' layer in the mapbox-streets vector source contains building-height
+        // data from OpenStreetMap.
         map.addLayer({
             'id': '3d-buildings',
             'source': 'composite',
@@ -41,6 +57,12 @@ export default {
             }
         });
     });
+
+    map.on('mousemove', function (e) {
+      console.log('e', JSON.stringify(e.lngLat));
+      this.lat = e.lngLat.lat.toFixed(7);
+      this.lng = e.lngLat.lng.toFixed(7);
+    }.bind(this));
   }
 }
 </script>
@@ -51,5 +73,17 @@ export default {
   top:0;
   bottom:0;
   width:100%;
+}
+
+#latLng {
+  background: transparentize(white, 0.2);
+  bottom: 0;
+  box-sizing: border-box;
+  display: inline;
+  left: 10px;
+  padding: 5px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 200;
 }
 </style>
