@@ -1,4 +1,5 @@
-# vue-demo
+# vue-mapbox-gl
+A demo Vue app using MapboxGL
 
 > A Vue.js project
 
