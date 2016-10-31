@@ -1,25 +1,26 @@
 # vue-mapbox-gl
 A demo Vue app using MapboxGL
 
-> A Vue.js project
-
 ## Build Setup
 
 ``` bash
+# if you don't have Yarn installed
+npm install -g yarn
+
 # install dependencies
-npm install
+yarn
 
 # serve with hot reload at localhost:8080
-npm run dev
+yarn dev
 
 # build for production with minification
-npm run build
+yarn build
 
 # lint all *.js and *.vue files
-npm run lint
+yarn lint
 
 # run unit tests
-npm test
+yarn test
 ```
 
 For more information see the [docs for vueify](https://github.com/vuejs/vueify).
