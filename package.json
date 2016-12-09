@@ -24,7 +24,8 @@
     "mapbox-gl": "^0.26.0",
     "mapbox-gl-draw": "^0.13.2",
     "node-sass": "^3.10.1",
-    "vue": "^2.0.1"
+    "vue": "^2.0.1",
+    "vue-resource": "^1.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
