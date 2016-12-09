@@ -1,5 +1,5 @@
 # vue-mapbox-gl
-A demo Vue app using MapboxGL
+A demo Vue app using MapboxGL to track the position of the International Space Station in real time
 
 ## Build Setup
 
