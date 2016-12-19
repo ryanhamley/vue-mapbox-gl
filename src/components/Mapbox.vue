@@ -220,7 +220,7 @@ export default {
 }
 </script>
 
-<style lang='scss'>
+<style scoped lang='scss'>
 #map {
   position:absolute;
   top:0;
