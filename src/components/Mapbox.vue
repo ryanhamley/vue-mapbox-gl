@@ -1,11 +1,6 @@
 <template>
   <div id='map'>
     <p id='latLng'>Lat: {{lat}} Lng: {{lng}}</p>
-    <form id='mapType'>
-      <label>Change Map Type</label>
-      <input type='radio' name='mapType' value='default' v-model='mapType' v-on:change='changeMapType' /> Default <br />
-      <input type='radio' name='mapType' value='satellite' v-model='mapType' v-on:change='changeMapType' /> Satellite <br />
-    </form>
   </div>
 </template>
 
@@ -23,7 +18,6 @@ const defaultOptions = {
   style: config.mapStyles.default,
   center: [defaultLatLng.lng, defaultLatLng.lat],
   zoom: 15,
-  // pitch: 45,
   attributionControl: false
 }
 
@@ -67,32 +61,8 @@ export default {
         let nav = new mapboxgl.NavigationControl({position: 'bottom-right'})
 
         map.addControl(nav)
-        // map.addControl(Draw())
 
         map.on('load', () => {
-          // the 'building' layer in the mapbox-streets vector source contains building-height
-          // data from OpenStreetMap.
-          // map.addLayer({
-          //   'id': '3d-buildings',
-          //   'source': 'composite',
-          //   'source-layer': 'building',
-          //   'filter': ['==', 'extrude', 'true'],
-          //   'type': 'fill',
-          //   'minzoom': 15,
-          //   'paint': {
-          //     'fill-color': '#aaa',
-          //     'fill-extrude-height': {
-          //       'type': 'identity',
-          //       'property': 'height'
-          //     },
-          //     'fill-extrude-base': {
-          //       'type': 'identity',
-          //       'property': 'min_height'
-          //     },
-          //     'fill-opacity': .6
-          //   }
-          // });
-
           map.addSource('points', {
             'type': 'geojson',
             'data': {
@@ -153,46 +123,6 @@ export default {
             issLat
           ]
         });
-
-        // if (!vm.map.getSource('route')) {
-        //   vm.map.addSource("route", {
-        //     "type": "geojson",
-        //     "data": {
-        //       "type": "Feature",
-        //       "properties": {},
-        //       "geometry": {
-        //         "type": "LineString",
-        //         "coordinates": vm.route
-        //       }
-        //     }
-        //   });
-        //
-        //   vm.map.addLayer({
-        //     "id": "route",
-        //     "type": "line",
-        //     "source": "route",
-        //     "layout": {
-        //       "line-join": "round",
-        //       "line-cap": "round"
-        //     },
-        //     "paint": {
-        //       "line-color": "#888",
-        //       "line-width": 8
-        //     }
-        //   });
-        // } else {
-        //   vm.map.getSource('points').setData({
-        //     "type": "geojson",
-        //     "data": {
-        //       "type": "Feature",
-        //       "properties": {},
-        //       "geometry": {
-        //         "type": "LineString",
-        //         "coordinates": vm.route
-        //       }
-        //     }
-        //   });
-        // }
 
         requestAnimationFrame(() => {
           vm.map.getSource('points').setData({
