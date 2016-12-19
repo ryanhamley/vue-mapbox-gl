@@ -1,5 +1,2 @@
 .DS_Store
-node_modules
-dist/build.js
-dist/build.css
 .git

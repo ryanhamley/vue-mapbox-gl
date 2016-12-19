@@ -1,0 +1,2 @@
+body{margin:0}
+#map[data-v-2]{position:absolute;top:0;bottom:0;width:100%}#latLng[data-v-2]{background:hsla(0,0%,100%,.8);bottom:0;left:10px;pointer-events:none}#latLng[data-v-2],#mapType[data-v-2]{box-sizing:border-box;display:inline;padding:5px;position:absolute;z-index:200}#mapType[data-v-2]{background:#fff;border-radius:5px;top:10px;right:10px}#mapType label[data-v-2]{display:block;font-weight:700}

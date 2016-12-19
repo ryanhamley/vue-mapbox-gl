@@ -1,0 +1,30 @@
+{
+  "name": "has-require",
+  "version": "1.2.2",
+  "description": "Check if code requires any module or a specific id",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bendrucker/has-require.git"
+  },
+  "keywords": [
+    "require",
+    "browserify"
+  ],
+  "author": "Ben Drucker <bvdrucker@gmail.com> (http://bendrucker.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bendrucker/has-require/issues"
+  },
+  "homepage": "https://github.com/bendrucker/has-require",
+  "devDependencies": {
+    "standard": "^4.0.1",
+    "tape": "^4.0.0"
+  },
+  "dependencies": {
+    "escape-string-regexp": "^1.0.3"
+  }
+}

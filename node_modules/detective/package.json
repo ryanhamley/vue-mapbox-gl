@@ -1,0 +1,33 @@
+{
+  "name": "detective",
+  "description": "find all require() calls by walking the AST",
+  "version": "4.1.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/substack/node-detective.git"
+  },
+  "main": "index.js",
+  "keywords": [
+    "require",
+    "source",
+    "analyze",
+    "ast"
+  ],
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "dependencies": {
+    "acorn": "^1.0.3",
+    "defined": "^1.0.0",
+    "escodegen": "^1.4.1"
+  },
+  "devDependencies": {
+    "tap": "^1.0.0"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net"
+  }
+}
